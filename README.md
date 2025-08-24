@@ -18,6 +18,27 @@ De kaartjes voorzien van een notitie dienen als template. Daaronder staat een vo
 
 De Homeyscript **code** DAN Flow kaartjes verwijzen naar de respectievelijke scripts die je vooraf in je HomeyScript library hebt aangemaakt. Zie [kaartje 2](./setup_stookwaarde-temp.js) en [kaartje 3](./bepaal_setpoint-temp.js)
 
+## temperatuur mapping
+
+De volgende tabel toont de mapping tussen buitentemperatuur grenswaarden en bijbehorende stookwaarden:
+
+| Buitentemperatuur (°C) | Stookwaarde (°C) |
+|------------------------|------------------|
+| > 15                   | 23               |
+| > 12                   | 24               |
+| > 9                    | 25               |
+| > 6                    | 26               |
+| > 3                    | 27               |
+| > 0                    | 27               |
+| > -3                   | 28               |
+| > -6                   | 28               |
+| > -9                   | 29               |
+| > -12                  | 29               |
+| > -15                  | 30               |
+| ≤ -15                  | 30               |
+
+*De uiteindelijke setpoint temperatuur wordt berekend als: stookwaarde + stookwaarde_correctie (standaard -2°C)*
+
 ## diagram
 
 Hieronder staat een visuele weergave van de buitentemperatuur-afhankelijke setpoint bepaling:
