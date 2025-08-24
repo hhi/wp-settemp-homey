@@ -16,7 +16,7 @@ class HomeyVars {
 const homeyVars = new HomeyVars();
 var stookwaarde_correctie = await homeyVars.getVariableValue('stookwaarde_correctie', -2)
 var stookwaarde = await homeyVars.getVariableValue('stookwaarde', 20)
-var buitentemperatuur = await homeyVars.getVariableValue('buitentemperatuur',20);
+var buiten_temperatuur = await homeyVars.getVariableValue('buiten_temperatuur',20);
 
 // Array van temperatuurgrenzen en bijbehorende stookwaarden
 var grenswaarden = [
@@ -38,7 +38,7 @@ var grenswaarden = [
 
 //actualiseer de stookwaarde obv de buitentemperatuur naar stookwaarde mapping
 for (var i = 0; i < grenswaarden.length; i++) {
-  if (buitentemperatuur > grenswaarden[i].grens) {
+  if (buiten_temperatuur > grenswaarden[i].grens) {
     stookwaarde = grenswaarden[i].stook;
     break;
   }
@@ -47,11 +47,11 @@ for (var i = 0; i < grenswaarden.length; i++) {
 // Zet de stookwaarde
 var setpoint_temperatuur = stookwaarde + stookwaarde_correctie;
 
-homeyVars.setVariableValue('setpoint-temperatuur', setpoint_temperatuur);
+homeyVars.setVariableValue('setpoint_temperatuur', setpoint_temperatuur);
 
 
 console.log("actuele stookwaarde_correctie: ", stookwaarde_correctie);
-console.log("actuele buitentemperatuur: ", buitentemperatuur);
+console.log("actuele buitentemperatuur: ", buiten_temperatuur);
 console.log("actuele stookwaarde: ", stookwaarde);
 console.log("setpoint temperatuur: ", setpoint_temperatuur);
 
